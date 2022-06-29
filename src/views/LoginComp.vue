@@ -53,7 +53,7 @@ export default {
                   localStorage.setItem('jwt',response.data.jwt)
                   // document.cookie = response.data;
                 }).then(()=>{
-                  this.$router.push('/home')
+                  this.$router.push('/')
                 })
                 .catch(function (error) {
                   console.log(error);

@@ -10,6 +10,9 @@
         <router-link to="/">
             <button class="btn btn btn-outline-secondary m-2" type="button">Home</button>
         </router-link>
+        <router-link to="/logout">
+            <button class="btn btn btn-outline-secondary m-2" type="button">Logout</button>
+        </router-link>
       </form>
     </nav>
 </template>
