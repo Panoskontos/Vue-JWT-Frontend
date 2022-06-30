@@ -1,6 +1,6 @@
 <template>
     <div>
-        Logout view
+        You have successfully logged out
     </div>
 </template>
 
