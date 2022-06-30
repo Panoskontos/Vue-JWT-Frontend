@@ -11,6 +11,8 @@ const routes = [
   {path:'/login',component:LoginComp},
   {path:'/logout',component:LogoutComp},
   {path:'/register',component:RegisterView},
+  // redirect
+  {path:'/',redirect:'/login'}
 ]
 
 const router = new VueRouter({

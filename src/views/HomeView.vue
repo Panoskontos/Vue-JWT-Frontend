@@ -35,7 +35,7 @@ export default {
   },
   async created(){
 
-      this.fetchuserdata();
+      this.fetchuserdata()
 
     //   console.log(window.localStorage.getItem('jwt'))
     //   var requestOptions = {
