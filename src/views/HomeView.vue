@@ -6,8 +6,11 @@
     Name: {{user_data.name?user_data.name:""}}
     <br> -->
 
-  {{ alluserdata.detail? alluserdata.detail: alluserdata}}
+  {{ alluserdata.detail? "Please Login": alluserdata}}
+  <br>
+  <div v-if="$store.getters.getauth" style="background:green;width:100%; height: 1000px;">
 
+  </div>
   </div>
 </template>
 
@@ -23,20 +26,22 @@ export default {
   name: 'HomeView',
   
   // for vuex
-  computed: mapGetters(['alluserdata']),
+  computed: mapGetters(['alluserdata'])
+  ,
   methods: {
     ...mapActions(['fetchuserdata'])
   },
   
   data(){
     return {
-      user_data:{}
+      user_data:{},
+    
     }
   },
   async created(){
 
-      this.fetchuserdata()
-
+       this.fetchuserdata()
+       
     //   console.log(window.localStorage.getItem('jwt'))
     //   var requestOptions = {
     //   method: 'GET',

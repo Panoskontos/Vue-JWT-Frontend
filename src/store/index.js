@@ -5,19 +5,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    authenticated:false,
     user_data: {
-      'name':'Pete'
+      'auth':"Not authenticated"
     }
   },
   getters: {
-    alluserdata: (state) => state.user_data
+    alluserdata: (state) => state.user_data,
+    getauth: (state) => state.authenticated,
   },
   actions: {
     async fetchuserdata({commit}) {
       // const res = await axios.get('https://jsonplaceholder.typicode.com/todos')
       // console.log(res.data)
       // commit('settodos', res.data)
-
       console.log(window.localStorage.getItem('jwt'))
       var requestOptions = {
       method: 'GET',
@@ -29,15 +30,19 @@ export default new Vuex.Store({
     , requestOptions).then(response => response.text()).then(result => {
       // this.user_data=JSON.parse(result); 
       commit('setuserdata', JSON.parse(result))
-      console.log(result)}
+      console.log(result)
+      console.log(JSON.parse(result).id?this.state.authenticated=true:this.state.authenticated=false)
+      console.log(this.state.authenticated)
+    }
       )
       .catch(error => console.log('error', error));
-    }
+    },
+
   },
 
 
   mutations: {
-    setuserdata: (state, user_data) => (state.user_data = user_data)
+    setuserdata: (state, user_data) => (state.user_data = user_data),
   },
   modules: {
   }
